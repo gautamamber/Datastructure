@@ -1,0 +1,76 @@
+#include<stdio.h>
+#include<conio.h>
+#define MAX 10
+int top=-1;
+int stack[MAX];
+void push();
+void pop();
+void show();
+void main()
+{
+int a;
+char b;
+clrscr();
+do
+{
+printf("\t\t\t\tMENU");
+printf("\n1. INSERT AN ELEMENT");
+printf("\n2. DELETE AN ELEMENT");
+printf("\n3. SHOW ALL THE ELEMENTS");
+printf("\n   ENTER YOUR CHOICE ");
+scanf("%d",&a);
+switch(a)
+{
+case 1:
+push();
+break;
+case 2:
+pop();
+break;
+case 3:
+show();
+break;
+default:
+printf("\nINVALID CHOICE");
+}
+printf("\n PRESS 'Y' OR 'y'FOR CONTINUE ");
+scanf("%s",&b);
+}
+while(b=='y'||b=='Y');
+}
+
+void push()
+{
+int ele;
+if (top==MAX-1)
+{
+printf("\nSTACK IS OVERFULL");
+}
+else
+{
+top=top+1;
+printf("\n ENTER THE ELEMENT ");
+scanf("%d",&ele);
+stack[top]=ele;
+}
+}
+
+void pop()
+{
+if(top==-1)
+{
+printf("\nDELETION NOT POSSIBLE, BECAUSE NO ELEMENT IN STACK");
+}
+else
+{
+top=top-1;
+printf("\nELEMENT DELETED");
+}
+}
+
+void show()
+{
+int i;
+for (i=top;i>=0;i--)
+printf("%d\n",stack[i]);
+}
